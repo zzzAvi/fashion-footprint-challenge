@@ -4,368 +4,819 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore the environmental impact of fashion through everyday wardrobe decisions.">
 <title>Fashion Footprint Challenge</title>
-<style>
 
+<style>
 :root {
   --green: #315b43;
-  --dark: #26372d;
+  --deep: #26372d;
   --cream: #f5f2e9;
-  --paper: #fffefa;
+  --white: #fffefa;
+  --orange: #bd7949;
   --muted: #77796e;
   --line: #deded2;
-  --orange: #c77d43;
+  --soft: #edf0e7;
 }
 
 * {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: var(--cream);
-  color: var(--dark);
-  font-family: Georgia, "Times New Roman", serif;
+  color: var(--deep);
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Navigation */
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 8%;
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+
+.logo {
+  color: var(--green);
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.nav-note {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 1px;
+}
+
+/* Hero section */
 
 header {
   background: var(--green);
   color: white;
-  padding: 55px 8%;
-  text-align: left;
-  border-bottom: 6px solid #c77d43;
+  padding: 75px 8% 80px;
+  position: relative;
+  overflow: hidden;
 }
 
-header .emoji {
-  font-size: 25px;
-  margin-bottom: 20px;
+.hero-content {
+  max-width: 950px;
+  margin: auto;
+}
+
+.eyebrow {
+  color: #e4c6a5;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  margin-bottom: 24px;
 }
 
 header h1 {
-  font-size: clamp(34px, 6vw, 58px);
-  max-width: 650px;
-  line-height: 1.05;
-  margin: 0 0 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(42px, 7vw, 76px);
   font-weight: normal;
+  line-height: 1.05;
+  max-width: 720px;
+  margin: 0 0 25px;
 }
 
 header p {
-  max-width: 520px;
-  font-family: Arial, sans-serif;
+  max-width: 560px;
   font-size: 16px;
-  line-height: 1.8;
-  color: #e3e9df;
+  line-height: 1.9;
+  color: #e4e9e1;
 }
 
+.hero-bottom {
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #e4c6a5;
+  font-size: 13px;
+}
+
+.hero-bottom span {
+  font-size: 24px;
+}
+
+/* Main content */
+
 main {
-  max-width: 900px;
-  margin: 45px auto;
-  padding: 0 20px 50px;
+  max-width: 1000px;
+  margin: 55px auto;
+  padding: 0 22px 65px;
 }
 
 .panel {
-  background: var(--paper);
+  background: var(--white);
   border: 1px solid var(--line);
+  padding: clamp(25px, 5vw, 55px);
   border-radius: 3px;
-  padding: clamp(22px, 5vw, 48px);
-  box-shadow: none;
 }
 
 .topline {
   display: flex;
   justify-content: space-between;
-  gap: 12px;
+  align-items: center;
   flex-wrap: wrap;
-  font-family: Arial, sans-serif;
-  font-size: 12px;
-  letter-spacing: 1px;
-  color: var(--green);
+  gap: 12px;
+  font-size: 11px;
   font-weight: bold;
+  letter-spacing: 1.5px;
+  color: var(--green);
 }
 
 .track {
-  height: 5px;
-  background: #e8e5dc;
-  margin: 20px 0 35px;
+  height: 4px;
+  background: #e9e7de;
+  margin: 22px 0 38px;
 }
 
 #progress {
   height: 100%;
   width: 0;
   background: var(--orange);
-  transition: width .3s;
+  transition: width .3s ease;
 }
 
 .tag {
   display: inline-block;
-  color: var(--orange);
-  font-family: Arial, sans-serif;
   font-size: 11px;
+  color: var(--orange);
   font-weight: bold;
   letter-spacing: 2px;
-  padding: 0;
-  background: none;
-  border-radius: 0;
 }
 
 h2 {
-  font-size: clamp(27px, 4vw, 39px);
-  line-height: 1.2;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(29px, 4vw, 43px);
   font-weight: normal;
+  line-height: 1.2;
   margin: 18px 0;
 }
 
 p {
-  font-family: Arial, sans-serif;
-  line-height: 1.8;
   font-size: 15px;
+  line-height: 1.8;
 }
 
 #story {
   background: #f3f0e7;
   border-left: 3px solid var(--orange);
-  padding: 20px;
+  padding: 22px;
   margin: 25px 0;
   line-height: 1.8;
-  font-family: Arial, sans-serif;
+  font-size: 15px;
+  color: #4d534a;
 }
+
+#question {
+  font-family: Georgia, serif;
+  font-size: 21px;
+  margin-top: 30px;
+}
+
+/* Answer options */
 
 .options {
   display: grid;
-  gap: 12px;
+  gap: 13px;
   margin-top: 25px;
 }
 
 .choice {
+  display: block;
+  width: 100%;
   background: transparent;
   border: 1px solid var(--line);
   border-radius: 2px;
-  padding: 19px;
+  padding: 20px;
   text-align: left;
   font-family: Arial, sans-serif;
   font-size: 15px;
   line-height: 1.6;
-  color: var(--dark);
+  color: var(--deep);
   cursor: pointer;
   transition: background .2s, border-color .2s;
 }
 
-.choice:hover {
-  background: #f1f2e9;
+.choice:hover:not(:disabled) {
+  background: var(--soft);
   border-color: var(--green);
+}
+
+.choice:disabled {
+  cursor: default;
 }
 
 .choice strong {
   display: block;
+  font-size: 15px;
   margin-bottom: 5px;
 }
+
+.choice span {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.choice:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+
+/* Buttons */
 
 button.primary {
   background: var(--green);
   color: white;
-  border: 0;
+  border: 1px solid var(--green);
   border-radius: 2px;
-  padding: 15px 24px;
-  font-family: Arial, sans-serif;
+  padding: 15px 25px;
   font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
-  margin-top: 20px;
+  margin-top: 22px;
+  transition: background .2s;
 }
 
 button.primary:hover {
   background: #203d2c;
 }
 
-button:focus-visible {
-  outline: 3px solid var(--orange);
-  outline-offset: 3px;
-}
+/* Feedback */
 
 #feedback {
-  margin-top: 25px;
-  padding: 20px;
-  background: #f1f2e9;
+  margin-top: 28px;
+  padding: 24px;
+  background: var(--soft);
   border-left: 3px solid var(--green);
 }
 
 #feedback h3 {
+  font-family: Georgia, serif;
+  font-weight: normal;
+  font-size: 22px;
   margin-top: 0;
 }
+
+#feedback p {
+  color: #4d534a;
+}
+
+/* Results */
 
 .hidden {
   display: none !important;
 }
 
+.results-heading {
+  margin-bottom: 30px;
+}
+
 .stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin: 25px 0;
+  gap: 12px;
+  margin: 30px 0;
 }
 
 .stat {
-  background: #f3f0e7;
-  padding: 20px 10px;
+  background: #f2f0e8;
+  padding: 25px 12px;
   text-align: center;
 }
 
 .stat b {
   display: block;
-  font-size: 30px;
+  font-family: Georgia, serif;
+  font-size: 35px;
   color: var(--green);
+  font-weight: normal;
+  margin-bottom: 8px;
 }
 
 .stat span {
-  font-family: Arial, sans-serif;
-  font-size: 12px;
+  font-size: 11px;
+  letter-spacing: 1px;
   color: var(--muted);
+  text-transform: uppercase;
 }
+
+.mission {
+  margin-top: 35px;
+  padding-top: 25px;
+  border-top: 1px solid var(--line);
+}
+
+.mission h3 {
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-weight: normal;
+}
+
+/* Footer */
 
 footer {
   border-top: 1px solid var(--line);
+  padding: 35px 20px;
   text-align: center;
   color: var(--muted);
-  font-family: Arial, sans-serif;
   font-size: 12px;
-  padding: 25px;
+  line-height: 2;
 }
 
-@media (max-width: 550px) {
+footer strong {
+  color: var(--green);
+}
+
+/* Mobile layout */
+
+@media (max-width: 600px) {
+  nav {
+    padding: 16px 20px;
+  }
+
   header {
-    padding: 40px 22px;
+    padding: 55px 25px;
+  }
+
+  main {
+    margin: 25px auto;
+    padding: 0 14px 40px;
+  }
+
+  .panel {
+    padding: 24px 19px;
   }
 
   .stats {
     grid-template-columns: 1fr;
   }
 
+  .stat {
+    padding: 17px;
+  }
+
   .topline {
     font-size: 10px;
   }
-}
 
+  #question {
+    font-size: 19px;
+  }
+}
 </style>
 </head>
+
 <body>
+
+<nav>
+  <div class="logo">THE FASHION FOOTPRINT</div>
+  <div class="nav-note">STYLE · PEOPLE · PLANET</div>
+</nav>
+
 <header>
- <div class="emoji">👟 ♻️ 👕</div>
- <h1>Fashion Footprint Challenge</h1>
- <p>Style is personal. The impact of what we wear is bigger than we think.</p>
+  <div class="hero-content">
+    <div class="eyebrow">A MORE THOUGHTFUL WAY TO DRESS</div>
+
+    <h1>Fashion is more than what we wear.</h1>
+
+    <p>
+      What we buy, how often we wear it, and what happens
+      when we're finished with it all leave a mark.
+      Let's look at the choices behind our everyday style.
+    </p>
+
+    <div class="hero-bottom">
+      <span>♻</span>
+      <div>Small wardrobe decisions can make a difference.</div>
+    </div>
+  </div>
 </header>
+
 <main>
+
 <section class="panel" id="game">
- <div class="topline"><span id="round">YOUR STYLE STORY</span><span id="scoreLabel">🌿 0 impact points</span></div>
- <div class="track"><div id="progress"></div></div>
- <span class="tag" id="category">THE CHALLENGE</span>
- <h2 id="title">Your closet. Your choices. Your impact.</h2>
- <div id="story">You are refreshing your wardrobe while juggling trends, a budget, friends, and a planet that needs a break. There isn't always one perfect answer. Make your choices and discover the trade-offs.</div>
- <p id="question">Can you build a style you love without letting fashion run your life?</p>
- <div class="options" id="options">
-  <button class="primary" onclick="startGame()">Start my style story →</button>
- </div>
- <div id="feedback" class="hidden" aria-live="polite"></div>
+
+  <div class="topline">
+    <span id="round">YOUR STYLE STORY</span>
+    <span id="scoreLabel">0 IMPACT POINTS</span>
+  </div>
+
+  <div class="track">
+    <div id="progress"></div>
+  </div>
+
+  <span class="tag" id="category">THE CHALLENGE</span>
+
+  <h2 id="title">Your closet. Your choices. Your impact.</h2>
+
+  <div id="story">
+    You are refreshing your wardrobe while juggling trends,
+    a budget, friends, and a planet that needs a break.
+    There isn't always one perfect answer. Make your choices
+    and discover the trade-offs.
+  </div>
+
+  <p id="question">
+    Can you build a style you love without letting fashion
+    run your life?
+  </p>
+
+  <div class="options" id="options">
+    <button class="primary" onclick="startGame()">
+      Start my style story →
+    </button>
+  </div>
+
+  <div id="feedback" class="hidden" aria-live="polite"></div>
+
 </section>
+
 <section class="panel hidden" id="results">
- <span class="tag">YOUR STYLE REPORT</span>
- <h2 id="ending">Your choices made a difference!</h2>
- <p id="summary"></p>
- <div class="stats">
-  <div class="stat"><b id="finalScore">0</b><span>Impact points</span></div>
-  <div class="stat"><b id="finalReuse">0</b><span>Smarter style moves</span></div>
-  <div class="stat"><b id="finalLearn">0</b><span>Lessons unlocked</span></div>
- </div>
- <h3>Your real-life style mission</h3>
- <p id="mission"></p>
- <button class="primary" onclick="restart()">Play again ↻</button>
+
+  <div class="results-heading">
+    <span class="tag">YOUR STYLE REPORT</span>
+    <h2 id="ending">Your choices made a difference!</h2>
+    <p id="summary"></p>
+  </div>
+
+  <div class="stats">
+
+    <div class="stat">
+      <b id="finalScore">0</b>
+      <span>Impact points</span>
+    </div>
+
+    <div class="stat">
+      <b id="finalReuse">0</b>
+      <span>Smarter style moves</span>
+    </div>
+
+    <div class="stat">
+      <b id="finalLearn">0</b>
+      <span>Lessons unlocked</span>
+    </div>
+
+  </div>
+
+  <div class="mission">
+    <h3>Your real-life style mission</h3>
+    <p id="mission"></p>
+
+    <button class="primary" onclick="restart()">
+      Play again ↻
+    </button>
+  </div>
+
 </section>
+
 </main>
-<footer>Small choices count. Progress, not perfection. 🌎</footer>
+
+<footer>
+  <strong>THE FASHION FOOTPRINT CHALLENGE</strong>
+  <br>
+  Small choices count. Progress, not perfection.
+  <br>
+  <span>Think before you buy. Wear what you own. Make it last.</span>
+</footer>
+
 <script>
-const scenes=[
-{cat:"THE TREND DROP",title:"Everyone has the same jacket",story:"A jacket is all over your feed. Your friends say it will be gone from trend lists in a month. Your old jacket still works, but this one would fit your outfits too.",q:"What is your move?",opts:[
+
+const scenes = [
+
+{
+cat:"THE TREND DROP",
+title:"Everyone has the same jacket",
+story:"A jacket is all over your feed. Your friends say it will be gone from trend lists in a month. Your old jacket still works, but this one would fit your outfits too.",
+q:"What is your move?",
+opts:[
 ["Buy it now and figure out the rest later",0,"A new item can feel exciting, but impulse buys are more likely to sit unworn. Try a 48-hour pause before deciding."],
 ["Save it to a wishlist and make 3 outfits with clothes you own",3,"A pause helps separate a passing trend from something you will actually wear. Outfit planning can reveal you already have the look."],
 ["Ask around to borrow one for an event",2,"Borrowing can meet a short-term style need without adding another item to your closet. Just make sure you return it in good condition."]
-]},
-{cat:"THE BUDGET",title:"Your budget is tight",story:"You need an outfit for an upcoming event. You have limited money, and the cheapest new option is tempting. A second-hand shop nearby has a few possibilities, but finding the right fit may take time.",q:"How do you handle it?",opts:[
+]
+},
+
+{
+cat:"THE BUDGET",
+title:"Your budget is tight",
+story:"You need an outfit for an upcoming event. You have limited money, and the cheapest new option is tempting. A second-hand shop nearby has a few possibilities, but finding the right fit may take time.",
+q:"How do you handle it?",
+opts:[
 ["Buy the cheapest new item without checking quality",1,"Low price matters when money is tight, but if the item wears out quickly, replacing it can cost more over time."],
 ["Check second-hand options and set a maximum budget",3,"A spending limit protects your budget. Second-hand shopping can extend an item's life, though fit, condition, and need still matter."],
 ["Buy a more expensive item because it claims to be sustainable",1,"A label alone doesn't prove an item is the best choice. Check what the claim means, whether you need it, and whether it will last."]
-]},
-{cat:"THE CLOSET CHECK",title:"You have nothing to wear. Sort of.",story:"Your room is covered in clothes, but you keep reaching for the same three outfits. Some items don't fit your current style; others are forgotten at the back of a drawer.",q:"What would help most?",opts:[
+]
+},
+
+{
+cat:"THE CLOSET CHECK",
+title:"You have nothing to wear. Sort of.",
+story:"Your room is covered in clothes, but you keep reaching for the same three outfits. Some items don't fit your current style; others are forgotten at the back of a drawer.",
+q:"What would help most?",
+opts:[
 ["Order a new haul to feel inspired",0,"New clothes can give a short burst of excitement, but they don't solve a closet full of overlooked items."],
 ["Try a closet remix: make 5 new combinations",3,"Styling what you own gets more use from existing resources and can help you discover your own look."],
 ["Donate everything you haven't worn this month",1,"Passing on wearable items can help, but a month is a short test. Consider seasons, special occasions, and whether someone can use each item."]
-]},
-{cat:"THE SOCIAL PRESSURE",title:"Your friend calls your outfit 'old'",story:"Someone makes a joke about your favourite hoodie because you've worn it a lot. You feel the pressure to show up in something new next time.",q:"What do you do?",opts:[
+]
+},
+
+{
+cat:"THE SOCIAL PRESSURE",
+title:"Your friend calls your outfit 'old'",
+story:"Someone makes a joke about your favourite hoodie because you've worn it a lot. You feel the pressure to show up in something new next time.",
+q:"What do you do?",
+opts:[
 ["Buy something new so nobody comments again",0,"It is understandable to want to fit in, but buying to avoid criticism can make other people's opinions control your spending."],
 ["Style the hoodie differently and wear it confidently",3,"Repeating clothes is normal. New combinations can refresh an outfit without requiring a new purchase."],
 ["Stop caring about style altogether",2,"Stepping away from pressure can help, but you don't have to give up fashion. Personal style can be creative and thoughtful."]
-]},
-{cat:"THE CARE LABEL",title:"Laundry day has arrived",story:"Your favourite shirt says to wash in cold water. It isn't stained, just a little worn from a day out. You want it ready for tomorrow.",q:"Which routine makes the most sense?",opts:[
+]
+},
+
+{
+cat:"THE CARE LABEL",
+title:"Laundry day has arrived",
+story:"Your favourite shirt says to wash in cold water. It isn't stained, just a little worn from a day out. You want it ready for tomorrow.",
+q:"Which routine makes the most sense?",
+opts:[
 ["Wash it hot with a tiny load",0,"Hot water and small loads can use more energy per item. Follow the care label and wash only when needed."],
 ["Air it out and wash a full, appropriate load later",3,"Not every worn item needs immediate washing. Airing clothes can extend wear between washes; follow hygiene and care needs."],
 ["Wash everything together on the longest cycle",1,"One routine is convenient, but different fabrics have different needs. Sorting appropriately helps clothes last."]
-]},
-{cat:"THE QUALITY TEST",title:"Two shirts, two price tags",story:"One shirt is cheaper but feels thin at the seams. Another costs more and seems sturdier, but you can only afford it if you will wear it often.",q:"How do you decide?",opts:[
+]
+},
+
+{
+cat:"THE QUALITY TEST",
+title:"Two shirts, two price tags",
+story:"One shirt is cheaper but feels thin at the seams. Another costs more and seems sturdier, but you can only afford it if you will wear it often.",
+q:"How do you decide?",
+opts:[
 ["Choose the cheapest one every time",1,"Upfront cost matters, but durability and cost per wear matter too. Cheap is not always the best value."],
 ["Check seams, fabric, fit, and how often you'll wear it",3,"Looking at construction, comfort, care, and likely use is more useful than judging by price alone."],
 ["Choose the more expensive shirt because price means quality",1,"Price isn't a guarantee. Inspect the item and consider whether the extra cost is worthwhile for your needs."]
-]},
-{cat:"THE CLOTHING SWAP",title:"Your friends want a swap party",story:"Everyone brings clothes they no longer wear. Some pieces are in great condition; a few have broken zips or small holes.",q:"How do you make the swap worthwhile?",opts:[
+]
+},
+
+{
+cat:"THE CLOTHING SWAP",
+title:"Your friends want a swap party",
+story:"Everyone brings clothes they no longer wear. Some pieces are in great condition; a few have broken zips or small holes.",
+q:"How do you make the swap worthwhile?",
+opts:[
 ["Bring everything, even damaged items, and hope someone takes them",1,"A swap works best when items are clean and wearable. Repairable pieces can be clearly labelled for mending."],
 ["Bring clean items and make a small repair station",3,"A clear standard helps everyone and a repair station gives damaged-but-fixable clothes another chance."],
 ["Skip the swap and buy something new instead",0,"Buying new may be easy, but a swap can refresh everyone's wardrobe without requiring new production."]
-]},
-{cat:"THE GREEN CLAIM",title:"A brand says 'eco collection'",story:"A social ad promises a collection is 'good for the planet'. It doesn't explain the materials, how the clothes are made, or what makes them better.",q:"What is your next step?",opts:[
+]
+},
+
+{
+cat:"THE GREEN CLAIM",
+title:"A brand says 'eco collection'",
+story:"A social ad promises a collection is 'good for the planet'. It doesn't explain the materials, how the clothes are made, or what makes them better.",
+q:"What is your next step?",
+opts:[
 ["Trust the green colour and the slogan",0,"A green aesthetic isn't evidence. Vague claims can make products seem more responsible than the details support."],
 ["Look for specific evidence and compare the details",3,"Specific material information, credible standards, durability, and transparent explanations are more useful than broad claims."],
 ["Assume every sustainability claim is a lie",2,"Scepticism is useful, but checking evidence is stronger than dismissing every claim automatically."]
-]},
-{cat:"THE FIX-IT MOMENT",title:"Your favourite jeans have a tear",story:"Your go-to jeans split at a seam. They still fit well, and replacing them would be expensive. You have never repaired clothes before.",q:"What's your best first move?",opts:[
+]
+},
+
+{
+cat:"THE FIX-IT MOMENT",
+title:"Your favourite jeans have a tear",
+story:"Your go-to jeans split at a seam. They still fit well, and replacing them would be expensive. You have never repaired clothes before.",
+q:"What's your best first move?",
+opts:[
 ["Throw them out and replace them",0,"Discarding a repairable item ends its useful life early. Replacement also takes money and resources."],
 ["Look up a simple repair or ask someone to help",3,"A basic repair can keep a favourite item in use. If the damage is beyond your skills, a tailor or repair service may help."],
 ["Keep wearing them and ignore the tear",1,"You may get a little more wear, but the tear could worsen. Repairing early may be easier."]
-]},
-{cat:"THE BIG PICTURE",title:"Your school wants a fashion campaign",story:"Your class can make one change this month. You want an idea people will actually join, not just a poster that gets ignored.",q:"Which campaign would you pitch?",opts:[
+]
+},
+
+{
+cat:"THE BIG PICTURE",
+title:"Your school wants a fashion campaign",
+story:"Your class can make one change this month. You want an idea people will actually join, not just a poster that gets ignored.",
+q:"Which campaign would you pitch?",
+opts:[
 ["A contest for who buys the most new outfits",0,"That creates pressure to consume more and treats shopping as the measure of style."],
 ["A repeat-outfit challenge with swaps and repair tips",3,"It makes practical habits social and creative, while showing that rewearing and repairing can be part of personal style."],
 ["A rule that nobody can ever buy new clothes",2,"Reducing unnecessary purchases can help, but an absolute rule may ignore real needs, access, sizing, and budget."]
-]}
+]
+}
+
 ];
-let index=0,score=0,smart=0,learned=0,locked=false;
-const $=id=>document.getElementById(id);
-function startGame(){index=0;score=0;smart=0;learned=0;$("game").classList.remove("hidden");$("results").classList.add("hidden");showScene()}
-function showScene(){
- locked=false;let s=scenes[index];
- $("round").textContent="SCENARIO "+(index+1)+" OF "+scenes.length;
- $("scoreLabel").textContent="🌿 "+score+" impact points";
- $("progress").style.width=(index/scenes.length*100)+"%";
- $("category").textContent=s.cat;$("title").textContent=s.title;
- $("story").textContent=s.story;$("question").textContent=s.q;
- $("feedback").classList.add("hidden");$("options").innerHTML="";
- s.opts.forEach((o,i)=>{let b=document.createElement("button");b.className="choice";b.innerHTML="<strong>"+String.fromCharCode(65+i)+". "+o[0]+"</strong><span>Choose this approach</span>";b.onclick=()=>choose(i);$("options").appendChild(b)})
+
+let index = 0;
+let score = 0;
+let smart = 0;
+let learned = 0;
+let locked = false;
+
+const $ = id => document.getElementById(id);
+
+function startGame() {
+  index = 0;
+  score = 0;
+  smart = 0;
+  learned = 0;
+
+  $("game").classList.remove("hidden");
+  $("results").classList.add("hidden");
+
+  showScene();
 }
-function choose(i){
- if(locked)return;locked=true;let o=scenes[index].opts[i];
- score+=o[1];if(o[1]>=2)smart++;learned++;
- $("scoreLabel").textContent="🌿 "+score+" impact points";
- [...$("options").children].forEach((b,n)=>{b.disabled=true;b.style.opacity=n===i?"1":".65";if(n===i)b.style.borderColor="#28634b"});
- $("feedback").classList.remove("hidden");
- $("feedback").innerHTML="<h3>"+(o[1]===3?"🌟 Thoughtful choice!":o[1]===2?"💡 A useful approach":"🔎 Consider the trade-off")+"</h3><p>"+o[2]+"</p><p><b>Remember:</b> Better choices depend on need, access, budget, and how long you use what you buy.</p><button class='primary' onclick='nextScene()'>"+(index===scenes.length-1?"See my style report →":"Next scenario →")+"</button>";
+
+function showScene() {
+  locked = false;
+
+  const s = scenes[index];
+
+  $("round").textContent =
+    "SCENARIO " + (index + 1) + " OF " + scenes.length;
+
+  $("scoreLabel").textContent =
+    score + " IMPACT POINTS";
+
+  $("progress").style.width =
+    (index / scenes.length * 100) + "%";
+
+  $("category").textContent = s.cat;
+  $("title").textContent = s.title;
+  $("story").textContent = s.story;
+  $("question").textContent = s.q;
+
+  $("feedback").classList.add("hidden");
+  $("options").innerHTML = "";
+
+  s.opts.forEach((o, i) => {
+    const button = document.createElement("button");
+
+    button.className = "choice";
+
+    const heading = document.createElement("strong");
+    heading.textContent =
+      String.fromCharCode(65 + i) + ". " + o[0];
+
+    const description = document.createElement("span");
+    description.textContent = "Choose this approach";
+
+    button.appendChild(heading);
+    button.appendChild(description);
+
+    button.addEventListener("click", () => choose(i));
+
+    $("options").appendChild(button);
+  });
 }
-function nextScene(){index++;if(index<scenes.length){showScene();window.scrollTo({top:0,behavior:"smooth"})}else finish()}
-function finish(){
- $("game").classList.add("hidden");$("results").classList.remove("hidden");
- $("progress").style.width="100%";$("finalScore").textContent=score;
- $("finalReuse").textContent=smart;$("finalLearn").textContent=learned;
- let pct=score/(scenes.length*3);
- $("ending").textContent=pct>=.8?"🌍 Conscious Style Champion!":pct>=.55?"✨ Thoughtful Trendsetter!":"🌱 Your Style Journey Starts Here!";
- $("summary").textContent="You explored "+learned+" real-life fashion decisions and earned "+score+" out of 30 impact points. There isn't one perfect choice for every situation; awareness and thoughtful trade-offs are what count.";
- $("mission").textContent=smart>=7?"This week, try a closet remix: create three outfits from items you already own and share your favourite combination.": "This week, choose one item you own and give it a longer life: repair it, style it differently, care for it well, or pass it on responsibly if you no longer need it.";
- window.scrollTo({top:0,behavior:"smooth"})
+
+function choose(i) {
+  if (locked) return;
+
+  locked = true;
+
+  const answer = scenes[index].opts[i];
+
+  score += answer[1];
+
+  if (answer[1] >= 2) {
+    smart++;
+  }
+
+  learned++;
+
+  $("scoreLabel").textContent =
+    score + " IMPACT POINTS";
+
+  [...$("options").children].forEach((button, n) => {
+    button.disabled = true;
+
+    if (n === i) {
+      button.style.borderColor = "#315b43";
+      button.style.background = "#edf0e7";
+    } else {
+      button.style.opacity = ".55";
+    }
+  });
+
+  $("feedback").classList.remove("hidden");
+  $("feedback").innerHTML = "";
+
+  const heading = document.createElement("h3");
+
+  heading.textContent =
+    answer[1] === 3
+      ? "A thoughtful choice"
+      : answer[1] === 2
+      ? "Something to consider"
+      : "There is a trade-off";
+
+  const explanation = document.createElement("p");
+  explanation.textContent = answer[2];
+
+  const reminder = document.createElement("p");
+  const strong = document.createElement("strong");
+  strong.textContent = "Remember: ";
+  reminder.appendChild(strong);
+  reminder.appendChild(document.createTextNode(
+    "Better choices depend on need, access, budget, and how long you use what you buy."
+  ));
+
+  const nextButton = document.createElement("button");
+  nextButton.className = "primary";
+  nextButton.textContent =
+    index === scenes.length - 1
+      ? "See my style report →"
+      : "Next scenario →";
+
+  nextButton.addEventListener("click", nextScene);
+
+  $("feedback").append(
+    heading,
+    explanation,
+    reminder,
+    nextButton
+  );
+
+  $("feedback").scrollIntoView({
+    behavior: "smooth",
+    block: "nearest"
+  });
 }
-function restart(){startGame();window.scrollTo({top:0,behavior:"smooth"})}
+
+function nextScene() {
+  index++;
+
+  if (index < scenes.length) {
+    showScene();
+
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  } else {
+    finish();
+  }
+}
+
+function finish() {
+  $("game").classList.add("hidden");
+  $("results").classList.remove("hidden");
+
+  $("progress").style.width = "100%";
+
+  $("finalScore").textContent = score;
+  $("finalReuse").textContent = smart;
+  $("finalLearn").textContent = learned;
+
+  const percentage = score / (scenes.length * 3);
+
+  $("ending").textContent =
+    percentage >= .8
+      ? "Conscious Style Champion!"
+      : percentage >= .55
+      ? "Thoughtful Trendsetter!"
+      : "Your Style Journey Starts Here!";
+
+  $("summary").textContent =
+    "You explored " + learned +
+    " real-life fashion decisions and earned " +
+    score + " out of 30 impact points. There isn't one perfect choice for every situation; awareness and thoughtful trade-offs are what count.";
+
+  $("mission").textContent =
+    smart >= 7
+      ? "This week, try a closet remix: create three outfits from items you already own and share your favourite combination."
+      : "This week, choose one item you own and give it a longer life: repair it, style it differently, care for it well, or pass it on responsibly if you no longer need it.";
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
+function restart() {
+  startGame();
+
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+}
+
 </script>
+
 </body>
 </html>
